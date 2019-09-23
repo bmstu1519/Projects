@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkarlene <kkarlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/04 18:53:26 by kkarlene          #+#    #+#             */
-/*   Updated: 2019/09/20 18:45:19 by kkarlene         ###   ########.fr       */
+/*   Created: 2019/09/09 19:21:39 by kkarlene          #+#    #+#             */
+/*   Updated: 2019/09/23 20:01:45 by kkarlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, char *s2)
+int		ft_memcmp(const void *arr1, const void *arr2, size_t n)
 {
-	int		i;
+	unsigned char *first;
+	unsigned char *second;
 
-	i = 0;
-	if (ft_strlen(s1) == 0 && ft_strlen(s2) != 0)
-		return (-1);
-	if (ft_strlen(s1) != 0 && ft_strlen(s2) == 0)
-		return (1);
-	while (s1[i] || s2[i])
+	first = (unsigned char *)arr1;
+	second = (unsigned char *)arr2;
+	while (n != 0)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		if (*first != *second)
+			return (*first - *second);
+		first++;
+		second++;
+		n--;
 	}
 	return (0);
 }
