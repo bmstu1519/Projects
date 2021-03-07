@@ -1,0 +1,5 @@
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
+val df = sqlContext.read.format("jdbc").option("url", "jdbc:oracle:thin:@192.168.0.138:1521/ORCLCDB.localdomain").option("dbtable", "rrp_test.customers").option("user", "zooro").option("password", "zooro").option("driver", "oracle.jdbc.OracleDriver").load()
+
+spark-shell —driver-class-path ../usr/jars/ojdbc8.jar —jars ../usr/jars/ojdbc8.jar - for linux / -> switch \, for windows ;

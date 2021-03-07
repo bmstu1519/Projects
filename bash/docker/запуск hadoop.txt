@@ -1,0 +1,21 @@
+версия ubuntu:
+cat etc/os-release 
+
+Запуск HADOOP заключается в запуске менеджеров HDFS и YARN. Для этого необходимо запустить два скрипта.
+
+sudo service ssh start - запуск ssh server;
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys # если localhost: hduser@localhost: Permission denied (publickey).
+
+Учетка может не иметь прав , поэтому перед запускам хадупа:
+sudo chmod 777 -R /usr/local/hadoop/
+
+Для HDFS:
+start-dfs.sh
+
+Для YARN:
+start-yarn.sh
+
+Успешность запуска всех демонов HADOOP можно проверить с помощью команды jps.
+Если все настроено правильно, должно быть запущено 5 процессов HADOOP: 
+NodeManager, NameNode, DataNode, ResourceManager, SecondaryNameNode ;

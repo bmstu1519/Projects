@@ -1,0 +1,4 @@
+[wsl2]
+kernelCommandLine = vsyscall=emulate
+# memory=2GB Limits VM memory in WSL 2 to 4 GB
+# processors=5 Makes the WSL 2 VM use two virtual processors
